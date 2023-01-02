@@ -46,4 +46,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_111522) do
 
   add_foreign_key "budgets", "users", on_delete: :cascade
   add_foreign_key "categories", "budgets", on_delete: :cascade
+  add_foreign_key "categories", "users", on_delete: :cascade
 end
