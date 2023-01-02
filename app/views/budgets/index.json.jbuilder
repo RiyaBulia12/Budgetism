@@ -1,1 +1,1 @@
-json.array! @budgets, partial: "budgets/budget", as: :budget
+json.array! @budgets, partial: 'budgets/budget', as: :budget
