@@ -1,28 +1,26 @@
-<h2>Sign up</h2>
+<%= render partial: 'devise/shared/header', locals: { heading: 'Sign up'}%>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }, html: {:class => 'mt-16 mx-8'}) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name",  class: "border-b border-gray-200 text-sm p-4 mb-4 w-full text-gray-700 leading-tight focus:border-b-primary-blue focus:outline-none", placeholder: 'Name' %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: "border-b border-gray-200 text-sm p-4 mb-4 w-full text-gray-700 leading-tight focus:border-b-primary-blue focus:outline-none", placeholder: 'Email' %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password",  class: "border-b border-gray-200 text-sm p-4 mb-4 w-full text-gray-700 leading-tight focus:border-b-primary-blue focus:outline-none", placeholder: '6 Characters Minimum Password' %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",  class: "border-b border-gray-200 text-sm p-4 mb-4 w-full text-gray-700 leading-tight focus:border-b-primary-blue focus:outline-none", placeholder: 'Confirm Password' %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: "mb-4 w-full p-5 tracking-wider bg-primary-blue text-center uppercase text-white block font-medium text-sm hover:border-2 hover:border-primary-blue hover:bg-white hover:text-primary-blue" %>
   </div>
 <% end %>
 
