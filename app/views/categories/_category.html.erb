@@ -1,7 +1,33 @@
-<div id="<%= dom_id category %>">
-  <% if action_name != "show" %>
-    <%= link_to "Show this category", category, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this category', edit_category_path(category), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+<% if @categories.length > 0%>
+  <% @categories.each do |category| %>
+    <%= link_to category_budgets_path(category) do%>
+    <div class="p-2 mx-4">
+      <div class="flex bg-white p-2 shadow-md">
+        <div class="flex-none bg-cover text-center overflow-hidden">
+          <img src="<%= category.icon %>" class="w-[80px] h-[80px]">
+        </div>
+        <div class="px-4 w-full flex flex-col justify-around">
+          <div class="flex justify-between">
+            <div class="text-gray-500 text-sm"><%= category.name %></div>
+            <div class="text-gray-900 font-bold text-sm">$<%= category.total_amount %></div>
+          </div>
+          <hr class="text-gray-50">
+          <div class="flex items-center">
+            <div class="text-xs">
+              <p class="text-gray-400">
+                <%= "#{category.created_at.day} #{category.created_at.strftime("%b")} #{category.created_at.year}" %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
   <% end %>
-</div>
+<% else %>
+  <div class="flex justify-center items-center text-red-500">
+    <div class="text-center">
+      <h1 class="text-xl font-medium">No categories yet</h1>
+    </div>
+  </div>
+<% end %>
