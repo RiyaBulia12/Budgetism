@@ -6,7 +6,13 @@ module.exports = {
     './app/views/**/*',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'primary-blue': '#3778c2',
+        'secondary-green': '#5fb523',
+        'gray-text': '#434b54'
+      },
+    },
   },
   plugins: [],
 }
