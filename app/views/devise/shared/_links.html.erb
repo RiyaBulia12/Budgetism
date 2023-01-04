@@ -2,12 +2,12 @@
   <%= link_to "Log in", new_session_path(resource_name), class:"p-1 field w-full tracking-wider flex justify-center uppercase text-primary-blue font-medium text-xs" %>
 <% end %>
 
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+<%- if false && devise_mapping.registerable? && controller_name != 'registrations' %>
   <%= link_to "Sign up", new_registration_path(resource_name), class:"p-1 field w-full tracking-wider flex justify-center uppercase text-primary-blue font-medium text-xs" %>
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name), class:"p-1 field w-full tracking-wider flex justify-center uppercase text-primary-blue font-medium text-xs" %>
+  <%= link_to "Forgot password?", new_password_path(resource_name), class:"p-1 field w-full tracking-wide flex justify-center text-gray-300 font-light text-sm hover:text-primary-blue" %>
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
