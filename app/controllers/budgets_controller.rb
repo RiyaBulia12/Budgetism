@@ -13,7 +13,7 @@ class BudgetsController < ApplicationController
 
   # GET /budgets/new
   def new
-   @budget = Budget.new
+    @budget = Budget.new
   end
 
   # POST /budgets or /budgets.json

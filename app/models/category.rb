@@ -9,5 +9,4 @@ class Category < ApplicationRecord
   def total_amount
     budgets.sum(:amount)
   end
-
 end
