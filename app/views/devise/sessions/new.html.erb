@@ -1,25 +1,23 @@
-<h2>Log in</h2>
+<%= render partial: 'devise/shared/header', locals: { heading: 'Log In'}%>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }, html: {:class => 'mt-16 mx-8'}) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "border-b border-gray-200 text-sm p-4 mb-4 w-full text-gray-700 leading-tight focus:border-b-primary-blue focus:outline-none", placeholder: 'Email' %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password", class: "border-b border-gray-200 text-sm p-4 mb-4 w-full text-gray-700 leading-tight focus:border-b-primary-blue focus:outline-none", placeholder: 'Password' %>
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="field">
+    <div class="field w-full p-5 tracking-wider flex justify-center uppercase text-primary-blue block font-medium text-xs">
       <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label :remember_me, class:"ml-2" %>
     </div>
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: "mb-4 w-full p-5 tracking-wider bg-primary-blue text-center uppercase text-white block font-medium text-sm hover:border-2 hover:border-primary-blue hover:bg-white hover:text-primary-blue" %>
   </div>
 <% end %>
 

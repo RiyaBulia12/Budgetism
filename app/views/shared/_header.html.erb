@@ -1,0 +1,47 @@
+<nav class="flex justify-between flex-wrap items-center bg-primary-blue px-5 py-3" >
+    <div class="block lg:hidden">
+      <button class=" flex items-center px-3 py-2 text-white hover:border-transparent hover:text-primary-blue hover:bg-white" onclick="openNav()">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"> <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+      </button>
+    </div>
+    <!-- mobile menu -->
+		<div id="sidenav" class="h-full w-0 text-white fixed z-10 top-0 left-0 bg-[#111] shadow-2xl overflow-x-hidden">
+      <a href="javascript:void(0)" class="absolute top-0 mt-4 right-[25px] text-xl font-bold" onclick="closeNav()">&times;</a>
+      <ul class="uppercase text-center tracking-widest">
+        <li class="mt-32 mb-8 font-medium texxt-sm" >Welcome, <%= current_user.name %></li>
+        <li class='mb-8 text-xs '><%= link_to 'Category', root_path %></li>
+        <li class='mb-8 text-xs '><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+      </ul>
+    </div>
+
+    <div class="flex items-center flex-shrink-0 text-white">
+      <span class="text-md tracking-wide uppercase">
+        <% if current_page?(authenticated_root_path) || current_page?(categories_path) %>
+            Categories
+          <% elsif current_page?(new_category_path) %>
+            Add Category
+          <% elsif params[:category_id] && current_page?(new_category_budget_path) %>
+            Add Budget
+          <% else %>
+            Transactions
+        <% end %>
+      </span>
+    </div>
+    <div class="block lg:flex lg:items-center lg:w-auto">
+      <div>
+        <a href="/" class="inline-block text-xs px-4 py-2 leading-none text-white hover:border-transparent hover:text-primary-blue hover:bg-white lg:mt-0">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>
+        </a>
+      </div>
+    </div>
+</nav>
+
+<script>
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "0";
+}
+</script>

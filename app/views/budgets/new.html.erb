@@ -1,7 +1,6 @@
 <div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">New budget</h1>
-
   <%= render "form", budget: @budget %>
-
-  <%= link_to 'Back to budgets', budgets_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <div class="w-full flex justify-center">
+    <%= link_to 'Back to Transaction', category_budgets_path(params[:category_id]), class: "shadow-inner mt-8 py-3 px-5 bg-gray-100 font-light text-xs" %>
+  </div>
 </div>

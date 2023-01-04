@@ -1,7 +1,7 @@
-<%= form_with(model: budget, class: "contents") do |form| %>
+<%= form_with(model: budget,  url: category_budgets_path(params[:category_id]), method: :post, class: "contents w-full max-w-sm") do |form| %>
   <% if budget.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(budget.errors.count, "error") %> prohibited this budget from being saved:</h2>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium text-sm mt-3 text-center">
+      <h2><%= pluralize(budget.errors.count, "error") %> prohibited this transaction from being saved:</h2>
 
       <ul>
         <% budget.errors.each do |error| %>
@@ -11,7 +11,14 @@
     </div>
   <% end %>
 
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  <div class="items-center p-8 mt-8">
+    <%= form.text_field :name, class: "border-b border-gray-200 text-sm p-4 mb-4 w-full text-gray-700 leading-tight focus:border-b-primary-blue focus:outline-none", placeholder: 'Name' %>
+    <%= form.number_field :amount, class: "border-b border-gray-200 text-sm p-4 mb-4 w-full text-gray-700 leading-tight focus:border-b-primary-blue focus:outline-none", placeholder: 'Amount' %>
   </div>
+  <div class="inline">
+    <%= form.submit 'Add Budget', class: "fixed bottom-0 w-full p-5 tracking-wider bg-secondary-green text-center uppercase text-white block font-medium text-sm" %>
+  </div>
+
 <% end %>
+
+
