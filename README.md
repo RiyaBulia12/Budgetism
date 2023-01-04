@@ -144,6 +144,7 @@ If you like this project give as a star! ⭐️
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
+- Original design idea by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella).
 - Hat tip to anyone whose code was used
 - [Microverse Document](https://github.com/microverseinc/curriculum-rails/blob/main/capstone/rails_capstone.md)
 
