@@ -1,0 +1,21 @@
+<%= render partial: 'devise/shared/header', locals: { heading: 'Register'}%>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }, html: {:class => 'mt-4'}) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "border-gray-200 text-sm p-4 w-full text-gray-700 leading-tight focus:outline-none border-b", style: 'border-top-width: 1px', placeholder: 'Full name' %>
+  </div>
+
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: "border-gray-200 text-sm p-4 w-full text-gray-700 leading-tight focus:outline-none border-b", placeholder: 'Email' %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password, autocomplete: "new-password",  class: "border-gray-200 text-sm p-4 w-full text-gray-700 leading-tight focus:outline-none border-b", placeholder: 'Password' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Next", class: "p-4 tracking-wider text-white absolute top-0 font-medium text-sm hover:bg-white hover:text-primary-blue", style: "right: 0px" %>
+  </div>
+<% end %>

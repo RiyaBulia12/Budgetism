@@ -1,0 +1,15 @@
+<%= render partial: 'devise/shared/header', locals: { heading: 'Forgot your password?'}%>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {:class => 'mt-16 mx-8', method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "border-b border-gray-200 text-sm p-4 mb-4 w-full text-gray-700 leading-tight focus:border-b-primary-blue focus:outline-none", placeholder: 'Email'  %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Send me reset password instructions", class: "mb-4 w-full p-5 tracking-wider bg-primary-blue text-center uppercase text-white block font-medium text-xs hover:border-2 hover:border-primary-blue hover:bg-white hover:text-primary-blue" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

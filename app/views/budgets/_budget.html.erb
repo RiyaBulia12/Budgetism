@@ -1,0 +1,34 @@
+<% if @budgets.length > 0 %>
+  <% @budgets.each do |budget| %>
+    <div class="p-2 mx-4">
+      <div class="flex bg-white p-2 shadow-md">
+        <div class="flex-none bg-cover text-center overflow-hidden">
+          <img src="https://source.unsplash.com/user/c_v_r/100x100" width="80px">
+        </div>
+        <div class="px-4 w-full flex flex-col justify-around">
+          <div class="flex justify-between">
+            <div class="text-gray-500 text-sm"><%= budget.budget.name %></div>
+            <div class="text-gray-900 font-bold text-sm">$<%= budget.budget.amount %></div>
+          </div>
+          <hr class="text-gray-50">
+          <div class="flex items-center">
+            <div class="text-xs">
+              <p class="text-gray-400">
+                <%= "#{budget.created_at.day} #{budget.created_at.strftime("%b")} #{budget.created_at.year}" %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="w-full flex justify-center">
+    <%= link_to 'Back to Categories', categories_path, class: "shadow-inner mt-8 py-3 px-5 bg-gray-100 font-light text-xs" %>
+  </div>
+<% else %>
+  <div class="pt-16 flex justify-center items-center text-red-500">
+    <div class="text-center">
+      <h1 class="text-xl font-medium">No transactions yet</h1>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,18 @@
+<%= render partial: 'devise/shared/header', locals: { heading: 'Log In'}%>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }, html: {:class => 'mt-4'}) do |f| %>
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "border-gray-200 text-sm p-4 w-full text-gray-700 leading-tight focus:outline-none border-b", style: 'border-top-width: 1px', placeholder: 'Email' %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password, autocomplete: "current-password", class: "border-b border-gray-200 text-sm p-4 mb-4 w-full text-gray-700 leading-tight focus:outline-none", placeholder: 'Password' %>
+  </div>
+
+    <div class="actions">
+      <%= f.submit "Log In", class: "p-4 tracking-wider text-white absolute top-0 font-medium text-sm hover:bg-white hover:text-primary-blue", style: "right: 0px" %>
+    </div>
+
+<% end %>
+
+<%= render "devise/shared/links" %>

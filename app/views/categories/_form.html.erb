@@ -1,0 +1,22 @@
+<%= form_with(model: category, class: "contents") do |form| %>
+  <% if category.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium text-sm mt-3 text-center">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+        <% category.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="items-center p-8 mt-8">
+    <%= form.text_field :name, class: "border-b border-gray-200 text-sm p-4 mb-8 w-full text-gray-700 leading-tight focus:border-b-primary-blue focus:outline-none", placeholder: 'Name' %>
+    <%= form.text_field :icon, class: "border-b border-gray-200 text-sm p-4 mb-8 w-full text-gray-700 leading-tight focus:border-b-primary-blue focus:outline-none", placeholder: 'Icon Url' %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit 'Create Category', class: "fixed bottom-0 w-full p-5 tracking-wider bg-secondary-green text-center uppercase text-white block font-medium text-sm" %>
+  </div>
+<% end %>
