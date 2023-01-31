@@ -84,6 +84,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: Budgetism_production
   username: Budgetism
   password: <%= ENV["BUDGETISM_DATABASE_PASSWORD"] %>
