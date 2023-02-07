@@ -41,7 +41,8 @@
 
 ## 🚀 Live Version <a name="live-demo"></a>
 
-- [Budgetism](https://rails-7hk6.onrender.com/)
+- [Budgetism](budgetism-production.up.railway.app)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
